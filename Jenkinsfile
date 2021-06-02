@@ -6,7 +6,7 @@ pipeline{
   stages{
       stage('Terraform Init'){
         steps{
-            sh label: '', script: "terraform init"
+            sh 'terraform init'
         }
       }
       stage('Terraform Plan'){
