@@ -1,7 +1,8 @@
-pipeline{
-  agent any
-  tools {
-    terraform 'terraform'
+pipeline {   
+  agent {
+    node {
+      label 'master'
+    }  
   }
   stages{
       stage('Terraform Init'){
