@@ -6,6 +6,11 @@ pipeline {
     }
   }
   stages {
+        stage('Terraform ini') { 
+      steps {
+        sh 'terraform plan -no-color -out=create.tfplan' 
+      }
+    }
     stage('Terraform Plan') { 
       steps {
         sh 'terraform plan -no-color -out=create.tfplan' 
