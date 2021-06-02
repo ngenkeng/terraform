@@ -1,26 +1,18 @@
-pipeline {
-  agent {
-    docker {
-      image 'hashicorp/terraform:light'
-      args '--entrypoint='
-    }
+pipeline{
+  agent any
+  tools {
+    terraform 'terraform-11'
   }
-  stages {
-        stage('Terraform ini') { 
-      steps {
-        sh 'terraform plan -no-color -out=create.tfplan' 
+  stages{
+      stage('Terraform Init'){
+        steps{
+            sh label: '', script: 'terraform init'
+        }
       }
-    }
-    stage('Terraform Plan') { 
-      steps {
-        sh 'terraform plan -no-color -out=create.tfplan' 
+      stage('Terraform Plan'){
+        steps{
+          sh label: '', script: 'terraform plan'
+        }
       }
-    }
-    // Optional wait for approval
-    input 'Deploy stack?'
-
-    stage ('Terraform Apply') {
-      sh "terraform --version"
-    }
   }
 }
