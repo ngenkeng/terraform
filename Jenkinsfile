@@ -5,6 +5,8 @@ pipeline{
     terraform 'terraform'
   }
 */
+
+/*
 pipeline {
     agent {
         any {
@@ -16,9 +18,7 @@ pipeline {
   stages{
       stage('Terraform Init'){
         steps{
-        sh """
-          PATH=/bin/terraform
-          terraform init"
+            sh label: '', script: 'terraform init'
         }
       }
       stage('Terraform Plan'){
@@ -26,5 +26,17 @@ pipeline {
           sh label: '', script: 'terraform plan'
         }
       }
+  }
+}
+*/
+
+pipeline{
+  agent any
+  stages{
+    stage('terraform init'){
+      steps{
+        sh "terraform init"
+      }
+    }
   }
 }
