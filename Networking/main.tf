@@ -153,7 +153,7 @@ resource "aws_instance" "web" {
 
 resource "aws_instance" "DB" {
     ami = "ami-077e31c4939f6a2f3"
-    instance_type = "t2.micro"
+    instance_type = "t3.micro"
     count = 1
     subnet_id = aws_subnet.my_db_subnet.id
     key_name = "web-key"
