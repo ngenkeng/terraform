@@ -16,7 +16,9 @@ pipeline {
   stages{
       stage('Terraform Init'){
         steps{
-            sh label: '', script: 'terraform init'
+        sh """
+          PATH=/bin/terraform
+          terraform init"
         }
       }
       stage('Terraform Plan'){
