@@ -31,10 +31,9 @@ pipeline {
 */
 
 pipeline{
-  agent any
-  environment {
-  PATH = "${PATH}:${getTerraformPath()}"
-}
+  agent {
+        docker {image 'hashicorp/terraform:light'}
+    }
   stages{
     stage('terraform init'){
       steps{
