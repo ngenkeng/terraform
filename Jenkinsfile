@@ -7,8 +7,11 @@ pipeline{
 */
 pipeline {
     agent {
-
-      image: 'hashicorp/terraform:latest'
+        any {
+            image 'hashicorp/terraform:latest'
+            label 'LINUX-SLAVE'
+            args  '--entrypoint="" -u root -v /opt/jenkins/.aws:/root/.aws'
+        }
     }
   stages{
       stage('Terraform Init'){
