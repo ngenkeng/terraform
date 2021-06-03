@@ -32,7 +32,7 @@ pipeline {
 
 pipeline{
   agent {
-        docker {image 'hashicorp/terraform:light'}
+        label {image 'hashicorp/terraform:light'}
     }
   stages{
     stage('terraform init'){
