@@ -7,11 +7,8 @@ pipeline{
 */
 pipeline {
     agent {
-        docker {
-            image 'hashicorp/terraform:latest'
-            label 'LINUX-SLAVE'
-            args  '--entrypoint="" -u root -v /opt/jenkins/.aws:/root/.aws'
-        }
+
+      image: 'hashicorp/terraform:latest'
     }
   stages{
       stage('Terraform Init'){
