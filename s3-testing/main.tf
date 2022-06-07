@@ -87,10 +87,11 @@ resource "aws_s3_bucket" "bucket" {
       bucket_key_enabled = (var.sse_algorithm == "aws:kms" ? var.bucket_key_enabled : false)
     }
   }
+  /*
   logging {
     target_bucket = local.access-logs-targets[join("-", [data.aws_region.current.name, data.aws_caller_identity.current.account_id])]
     target_prefix = join("", [var.name, "/"])
-  }
+  }*/
 }
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
