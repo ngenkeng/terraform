@@ -1,6 +1,6 @@
 locals {
   access-logs-targets = {
-    "us-east-2-420-48206924" = "ngenkeng"
+    "us-east-1-420-48206924" = "velero-bucket-jilefack"
     "us-east-2-665825549216" = "bku-lab-accesslogs-us-east-2"
     "us-east-1-665825549216" = "bku-lab-accesslogs"
     "us-east-1-042781717431" = "bku-logging-serveraccesslogs"
