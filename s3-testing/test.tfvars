@@ -1,6 +1,6 @@
 
  versioningrequired = "No"
-
+ name = "ngenkeng.jile.agenda.adr-12345"
    #bucket key enabled is false when using AWS encryption
   kms_key_arn = ""
   bucket_key_enabled = false
@@ -18,8 +18,9 @@
   block_public_policy = true
   ignore_public_acls = true
   restrict_public_buckets = true
+  s3_bucket_policy = {}
 
   additional_tags = {
         }
 
-  s3_bucket_policy = file("${path.module}/policies/bp-${local.bucketname}.json")
+
