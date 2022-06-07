@@ -23,4 +23,3 @@
         }
 
   s3_bucket_policy = file("${path.module}/policies/bp-${local.bucketname}.json")
-}
