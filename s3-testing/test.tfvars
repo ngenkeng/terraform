@@ -17,7 +17,6 @@ module "bku-sandbox-test-tfe" {
   s3_bucket_acl = "private"
 
   #provide grant directly until I figure a way to get the list from a file
-  grant =file("${path.module}/policies/gr-${local.bucketname}.txt")
 
   grant = [
     {
