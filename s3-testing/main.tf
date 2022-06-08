@@ -96,7 +96,27 @@ resource "aws_s3_bucket" "bucket" {
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.bucket.id
-  policy = var.s3_bucket_policy
+  policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::/*",
+        "arn:aws:s3:::"
+      ],
+      "Effect": "Deny",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:sourceVpce": ""
+        }
+      }
+    }
+  ]
+}
+POLICY
 }
 
 resource "aws_s3_bucket_ownership_controls" "bucket_ownership" {
