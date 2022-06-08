@@ -94,7 +94,7 @@ resource "aws_s3_bucket" "bucket" {
   }*/
 }
 
-resource "aws_s3_bucket_policy" "bucket_policy" {
+/*resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.bucket.id
   policy = <<POLICY
 {
@@ -117,7 +117,7 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
   ]
 }
 POLICY
-}
+}*/
 
 resource "aws_s3_bucket_ownership_controls" "bucket_ownership" {
   bucket = aws_s3_bucket.bucket.id
