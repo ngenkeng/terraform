@@ -6,7 +6,7 @@ variable "name" {
 variable "s3_bucket_acl" {
   type        = string
   description = "The S3 pre-canned ACL to use for the bucket. Valid values are blanks, private, public-read, public-read-write and authenticated-read. Leave blank if using ACL grants"
-  default     = ""
+  default     = "private"
   validation {
     condition     = contains(["", "private", "public-read", "public-read-write", "authenticated-read"], var.s3_bucket_acl)
     error_message = "Valid values for variable s3_bucket_acl: blanks, private, public-read, public-read-write, authenticated-read."
