@@ -33,6 +33,7 @@ variable "versioningrequired" {
 variable "s3_bucket_policy" {
   type        = string
   description = "Bucket Policy to be applied to the bucket"
+  default = ""
 }
 
 variable "purpose" {
